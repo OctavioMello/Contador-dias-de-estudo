@@ -2,7 +2,8 @@ let estado = {
     diasEstudados: [],
 }
 
-//executarFuncoes(limparDados);
+let palavraDia = estado.diasEstudados.length > 1 ? 'dias' : 'dia'
+
 
 let dadosSalvos = localStorage.getItem("dias");
 
@@ -18,6 +19,7 @@ function cliqueDoBotao(){
 function limparDados(){
     localStorage.removeItem("dias");
     estado.diasEstudados = [];
+    renderizar();
 }
 
 function executarFuncoes(acao){
@@ -27,12 +29,14 @@ function executarFuncoes(acao){
 
 function renderizar(){
     let mensagem = document.getElementById('quantidadeDias');
-    mensagem.innerHTML = `Você estudou até agora por: ${estado.diasEstudados.length} dias.`;
+    mensagem.innerHTML = `Você estudou até agora por: ${estado.diasEstudados.length} ${palavraDia}.`;
     let nome = document.getElementById('lista');
     nome.innerHTML = '';
     estado.diasEstudados.forEach(dias =>{
         const li = document.createElement('li');
-        li.textContent = (`Dia ${dias.dia} de estudos\n Data ${dias.data}`);
+        li.innerHTML = `
+        <strong>Dia ${dias.dia}</strong><br>
+        <small>${dias.data}</small>`;
         nome.appendChild(li);
     });
 }
