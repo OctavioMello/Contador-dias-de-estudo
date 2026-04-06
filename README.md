@@ -1,57 +1,85 @@
-# 📊 Contagem de Dias de Estudo
+📊 Contagem de Dias de Estudo
 
-Projeto simples desenvolvido para praticar conceitos fundamentais de JavaScript, com foco em evolução prática e consistente.
+Aplicação simples desenvolvida com foco em consolidar fundamentos de JavaScript e evolução prática como desenvolvedor.
 
----
+🚀 Funcionalidades
 
-## 🚀 Funcionalidades
+Registro de dias de estudo com controle por data
 
-* Registrar dias de estudo com um botão
-* Exibir quantidade total de dias estudados
-* Mostrar lista dos dias registrados
-* Persistência de dados utilizando localStorage (não perde ao recarregar a página)
+Exibição da quantidade total de dias estudados
 
----
+Listagem dinâmica dos dias registrados
 
-## 🧠 Conceitos praticados
+Persistência de dados utilizando localStorage
 
-* Manipulação do DOM
-* Controle de estado (state)
-* Separação de responsabilidades (lógica vs renderização)
-* Criação dinâmica de elementos (createElement, appendChild)
-* Estrutura de fluxo (evento → estado → renderização)
-* Uso de localStorage (persistência de dados)
-* Conversão de dados com JSON (stringify e parse)
+Prevenção de registros duplicados no mesmo dia
 
----
+🧠 Conceitos aplicados
 
-## 🛠️ Tecnologias utilizadas
+🔹 Controle de estado
 
-* HTML
-* JavaScript
+Os dados da aplicação são centralizados em um objeto estado, garantindo uma única fonte de verdade.
 
----
+🔹 Fluxo da aplicação
 
-## 📌 Aprendizados
+A aplicação segue um fluxo bem definido:
 
-Durante o desenvolvimento deste projeto, foi possível entender na prática:
+evento → atualização do estado → renderização da interface
 
-* A diferença entre dados e interface
-* Que a interface não se atualiza automaticamente
-* A importância de controlar o fluxo manualmente
-* Como estruturar código de forma mais clara e escalável
+🔹 Manipulação do DOM
 
----
+Criação dinâmica de elementos (createElement)
 
-## 📈 Próximos passos
+Inserção no DOM (appendChild)
 
-* Melhorar estrutura do estado (armazenar mais informações)
-* Adicionar validações (ex: evitar registrar o mesmo dia)
-* Melhorar a interface visual (CSS)
-* Evoluir para integração com APIs futuramente
+Atualização de conteúdo (textContent)
 
----
+🔹 Estrutura de dados
 
-## 💡 Observação
+Uso de array de objetos para representar cada dia de estudo:
 
-Este projeto faz parte do início da minha jornada como desenvolvedor, com foco em construção de base sólida antes de avançar para tecnologias mais complexas.
+{
+  dia: 1,
+  data: "06/04/2026"
+}
+🔹 Persistência de dados
+
+Armazenamento com localStorage
+
+Conversão de dados com JSON.stringify e JSON.parse
+
+🔹 Validação de regras
+
+Impede múltiplos registros no mesmo dia utilizando .some()
+
+🛠️ Tecnologias
+
+HTML
+
+JavaScript
+
+📈 Aprendizados
+
+Durante o desenvolvimento, foram consolidados conceitos fundamentais como:
+
+Separação entre dados e interface
+
+Controle manual de renderização
+
+Estruturação de lógica de aplicação
+
+Evolução de dados simples para estruturas mais complexas
+
+🔄 Possíveis melhorias
+
+Adicionar registro de tempo de estudo (minutos)
+
+Melhorar feedback visual ao usuário
+
+Permitir edição ou remoção de registros
+
+Evoluir para integração com backend futuramente
+
+💡 Sobre o projeto
+
+Este projeto faz parte da minha jornada inicial em Engenharia de Software, com foco em construir uma base sólida antes de avançar para tecnologias mais complexas.
