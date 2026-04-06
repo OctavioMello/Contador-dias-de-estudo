@@ -5,9 +5,13 @@ Aplicação simples desenvolvida com foco em consolidar fundamentos de JavaScrip
 🚀 Funcionalidades
 
 Registro de dias de estudo com controle por data
+
 Exibição da quantidade total de dias estudados
+
 Listagem dinâmica dos dias registrados
+
 Persistência de dados utilizando localStorage
+
 Prevenção de registros duplicados no mesmo dia
 
 🧠 Conceitos aplicados
@@ -41,6 +45,7 @@ Uso de array de objetos para representar cada dia de estudo:
 🔹 Persistência de dados
 
 Armazenamento com localStorage
+
 Conversão de dados com JSON.stringify e JSON.parse
 
 🔹 Validação de regras
