@@ -25,7 +25,9 @@ evento → atualização do estado → renderização da interface
 🔹 Manipulação do DOM
 
 Criação dinâmica de elementos (createElement)
+
 Inserção no DOM (appendChild)
+
 Atualização de conteúdo (textContent)
 
 🔹 Estrutura de dados
@@ -48,6 +50,7 @@ Impede múltiplos registros no mesmo dia utilizando .some()
 🛠️ Tecnologias
 
 HTML
+
 JavaScript
 
 📈 Aprendizados
@@ -55,15 +58,21 @@ JavaScript
 Durante o desenvolvimento, foram consolidados conceitos fundamentais como:
 
 Separação entre dados e interface
+
 Controle manual de renderização
+
 Estruturação de lógica de aplicação
+
 Evolução de dados simples para estruturas mais complexas
 
 🔄 Possíveis melhorias
 
 Adicionar registro de tempo de estudo (minutos)
+
 Melhorar feedback visual ao usuário
+
 Permitir edição ou remoção de registros
+
 Evoluir para integração com backend futuramente
 
 💡 Sobre o projeto
