@@ -1,9 +1,7 @@
 let estado = {
     diasEstudados: [],
+    mensagemFeedback: '',
 }
-
-let palavraDia = estado.diasEstudados.length > 1 ? 'dias' : 'dia'
-
 
 let dadosSalvos = localStorage.getItem("dias");
 
@@ -13,7 +11,8 @@ let dadosSalvos = localStorage.getItem("dias");
 renderizar();
 
 function cliqueDoBotao(){
-    executarFuncoes(contarDia);
+    executarFuncoes(contarDia, renderizar);
+    apagarFeedback();
 }
 
 function limparDados(){
@@ -22,12 +21,20 @@ function limparDados(){
     renderizar();
 }
 
-function executarFuncoes(acao){
+function executarFuncoes(acao, atualizacao){
     acao();
+    atualizacao();
+}
+
+function apagarFeedback(){
+    setTimeout(() => {
+    estado.mensagemFeedback = '';
     renderizar();
+}, 3000);
 }
 
 function renderizar(){
+    let palavraDia = estado.diasEstudados.length > 1 ? 'dias' : 'dia';
     let mensagem = document.getElementById('quantidadeDias');
     mensagem.innerHTML = `Você estudou até agora por: ${estado.diasEstudados.length} ${palavraDia}.`;
     let nome = document.getElementById('lista');
@@ -39,16 +46,22 @@ function renderizar(){
         <small>${dias.data}</small>`;
         nome.appendChild(li);
     });
+    let feedback = document.getElementById('feedback');
+    feedback.innerHTML = estado.mensagemFeedback;
 }
 
 function contarDia(){
-    let hoje = new Date().toLocaleDateString()
+    let hoje = new Date().toLocaleDateString();
     const jaRegistradoHoje = estado.diasEstudados.some(diasExistentes => diasExistentes.data == hoje);
     if (!jaRegistradoHoje){
+            estado.mensagemFeedback = 'Dia registrado com sucesso!'
             estado.diasEstudados.push({
                 dia : estado.diasEstudados.length + 1,
                 data : hoje,
     })
+    }
+    else{
+        estado.mensagemFeedback = 'Você já registrou o dia de hoje.'
     }
     localStorage.setItem("dias", JSON.stringify(estado.diasEstudados));
 }
