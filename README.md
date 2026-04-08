@@ -33,4 +33,4 @@ A interface é controlada pelo estado da aplicação, garantindo consistência e
 
 ## 🔗 Acesso
 
-(Adicione aqui o link quando publicar)
+https://octaviomello.github.io/Contador-dias-de-estudo/
