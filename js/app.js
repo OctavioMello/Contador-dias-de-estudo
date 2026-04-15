@@ -11,19 +11,47 @@ let dadosSalvos = localStorage.getItem("dias");
 renderizar();
 
 function cliqueDoBotao(){
-    executarFuncoes(contarDia, renderizar);
+    registrarDia();
+    renderizar();
     apagarFeedback();
+}
+
+function registrarDia(){
+    let {repetido, hoje} = verificarDia(); //Usar {repetido, hoje} substitui a utilização da estrutura varoável.repetido e variável.hoje toda vez que precisasse utilizar esses dois objetos
+    adicionarDia(repetido, hoje);
+    salvardados(estado.diasEstudados);
+}
+
+function verificarDia(){
+    let hoje = new Date().toLocaleDateString();
+    let repetido = false;
+    if (estado.diasEstudados.some(diasExistentes => diasExistentes.data == hoje)){
+        repetido = true;
+    }
+    return {repetido, hoje}
+}
+
+function adicionarDia(jaRegistradoHoje, hoje){
+    if (!jaRegistradoHoje){//Mesma coisa que (jaRegistradoHoje == false)
+        estado.mensagemFeedback = 'Dia registrado com sucesso!'
+        estado.diasEstudados.push({
+            dia : estado.diasEstudados.length + 1,
+            data : hoje,
+    })
+    }
+    else{
+        estado.mensagemFeedback = 'Você já registrou o dia de hoje.'
+    }
+}
+
+function salvardados(dados){
+    localStorage.setItem("dias", JSON.stringify(dados))
 }
 
 function limparDados(){
     localStorage.removeItem("dias");
     estado.diasEstudados = [];
     renderizar();
-}
-
-function executarFuncoes(acao, atualizacao){
-    acao();
-    atualizacao();
 }
 
 function apagarFeedback(){
@@ -48,20 +76,4 @@ function renderizar(){
     });
     let feedback = document.getElementById('feedback');
     feedback.innerHTML = estado.mensagemFeedback;
-}
-
-function contarDia(){
-    let hoje = new Date().toLocaleDateString();
-    const jaRegistradoHoje = estado.diasEstudados.some(diasExistentes => diasExistentes.data == hoje);
-    if (!jaRegistradoHoje){
-            estado.mensagemFeedback = 'Dia registrado com sucesso!'
-            estado.diasEstudados.push({
-                dia : estado.diasEstudados.length + 1,
-                data : hoje,
-    })
-    }
-    else{
-        estado.mensagemFeedback = 'Você já registrou o dia de hoje.'
-    }
-    localStorage.setItem("dias", JSON.stringify(estado.diasEstudados));
 }
